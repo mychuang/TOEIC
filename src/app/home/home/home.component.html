@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="container custom-container-width" >
+  <div class="row" style="margin-top: 10px;">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="VAR">
+        <th mat-header-cell *matHeaderCellDef> 單字 </th>
+        <td mat-cell *matCellDef="let element"> {{element.VAR}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="CVAR">
+        <th mat-header-cell *matHeaderCellDef> 中文 </th>
+        <td mat-cell *matCellDef="let element"> {{element.CVAR}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="SENT">
+        <th mat-header-cell *matHeaderCellDef> 句子 </th>
+        <td mat-cell *matCellDef="let element"> {{element.SENT}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="REMARK">
+        <th mat-header-cell *matHeaderCellDef> 補充 </th>
+        <td mat-cell *matCellDef="let element"> {{element.REMARK}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+</div>

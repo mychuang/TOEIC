@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 import { timeout } from 'rxjs/operators';
+import { MatTableDataSource } from '@angular/material/table';
+import { TOEIC } from 'src/app/model/TOEIC';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,14 @@ import { timeout } from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  displayedColumns = [
+    'VAR', 'CVAR', 'SENT', 'REMARK'
+  ];
+  dataSource: MatTableDataSource<TOEIC>;
 
-  constructor(private service: HomeService) { }
+  constructor(private service: HomeService) {
+    this.dataSource = new MatTableDataSource<TOEIC>();
+  }
 
   ngOnInit(): void {
     this.getTOEIC();
@@ -18,7 +26,7 @@ export class HomeComponent implements OnInit {
   getTOEIC(){
     this.service.getTOEIC().pipe(timeout(2000)).subscribe({
       next: (res) =>{
-        console.log(res);
+        this.dataSource.data = res;
       },
       error: (e)=>{
         console.log(e);
