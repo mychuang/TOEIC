@@ -3,6 +3,7 @@ import { HomeService } from '../home.service';
 import { timeout } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { TOEIC } from 'src/app/model/TOEIC';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +11,19 @@ import { TOEIC } from 'src/app/model/TOEIC';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  formGroup: FormGroup;
+
   displayedColumns = [
     'VAR', 'CVAR', 'SENT', 'REMARK'
   ];
   dataSource: MatTableDataSource<TOEIC>;
 
-  constructor(private service: HomeService) {
+  constructor(private service: HomeService, private formBuilder: FormBuilder) {
     this.dataSource = new MatTableDataSource<TOEIC>();
   }
 
   ngOnInit(): void {
+    this.initialFormGroup();
     this.getTOEIC();
   }
 
@@ -33,6 +37,14 @@ export class HomeComponent implements OnInit {
         window.alert(`Oops! something went wrong, contact your IT specialist`);
       }
     })
+  }
+
+  initialFormGroup() {
+    this.formGroup = this.formBuilder.group({
+      CVAR: false,
+      SENT: false,
+      REMARK: false
+    });
   }
 
 }
