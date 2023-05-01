@@ -5,6 +5,7 @@ import { AngularMaterialModule } from '../angular-material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { VocabularyComponent } from './vocabulary/vocabulary.component';
+import { VoclistComponent } from './voclist/voclist.component';
 
 
 
@@ -12,7 +13,8 @@ import { VocabularyComponent } from './vocabulary/vocabulary.component';
   declarations: [
     HomeComponent,
     CardComponent,
-    VocabularyComponent
+    VocabularyComponent,
+    VoclistComponent
   ],
   imports: [
     FormsModule, ReactiveFormsModule,
