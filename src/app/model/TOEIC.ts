@@ -3,5 +3,6 @@ export interface TOEIC{
   VAR: string;
   CVAR: string;
   SENT: string;
+  CSENT: string;
   REMARK: string;
 }
