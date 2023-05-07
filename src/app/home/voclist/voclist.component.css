@@ -1,12 +1,7 @@
-.container-fluid{
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .card {
-  width: 100%;
+  width: 80%;
   height: 500px;
   font-family: 'Noto Sans TC', sans-serif;
   box-shadow: 0 0 20px rgba(160, 44, 44, 0.79);
